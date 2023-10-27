@@ -1,0 +1,7 @@
+You can :
+-Import your icon
+-Choose colors
+-Download your code
+-Copy your code
+-Create basic blocks and labels
+-Add basic inputs to your blocks
