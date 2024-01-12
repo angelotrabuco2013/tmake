@@ -1,4 +1,4 @@
-You can :
+You can:
 -Import your icon
 -Choose colors
 -Download your code
