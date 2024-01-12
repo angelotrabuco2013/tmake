@@ -7,6 +7,9 @@
     <title>TMake</title>
     <link href="https://angelotrabuco2013.github.io/tmake/style.css" rel="stylesheet" type="text/css" />
     <link href="https://angelotrabuco2013.github.io/tmake/switch.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <style class="blocks-color"></style>
   </head>
 
@@ -175,7 +178,7 @@
                 <!--<option value="button">Button</option>-->
               </select>
               <br>
-              <button class="buttonstylized" align="center" onclick="createBlock();">Create block</button>
+              <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" align="center" onclick="createBlock();">Create block</button>
             </div>
           </div>
           <div class="centered">
@@ -209,7 +212,7 @@
       </section>
       <br>
       <section id="result">
-        <button onclick="loadCode();" class="buttonstylized">Load Code</button>
+        <button onclick="loadCode();" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Load Code</button>
         <h1 style="font-size: 48px; color: red;" class="errortext" align="center"><b></b></h1>
         <div id="extension-file-name" style="background-color: gray;font-weight: bold;"></div>
         <pre><button class="buttonstylized" title="Copy" onclick="copyExtensionCode();">📋</button><button class="buttonstylized" title="Download Code" onclick="downloadCode();"><img src="./download.svg" height="32"></button>
