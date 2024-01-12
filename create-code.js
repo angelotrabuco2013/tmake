@@ -181,7 +181,10 @@ function getEveryBlocksCode(){
   return fullcode;
 }
 
-// ----------------------------------------------
+// -----------------------------------------------------------------------------------------------------------------------------
+// ast: the blobtoBase64 function is called to convert the requested code as a blob url into base64 so that tmake can process it.
+// -----------------------------------------------------------------------------------------------------------------------------
+
 function blobToBase64(blob) {
   return new Promise((resolve, _) => {
     const reader = new FileReader();
@@ -199,14 +202,14 @@ async function generateExtensionCode(){
 // Name: ${document.querySelector('div.extension-name input').value}
 // ID: ${document.querySelector('div.extension-id input').value}
 // Description: ${document.querySelector('div.extension-description input').value}${if_then_else_return(document.querySelector('div.extension-creator input').value == '', '', `
-// By: ${document.querySelector('div.extension-creator input').value} ${if_then_else_return(document.querySelector('div.extension-creator-account-url input').value == '', '', `<${document.querySelector('div.extension-creator-account-url select').value + '://' + document.querySelector('div.extension-creator-account-url input').value}>`)}`)}
+// Author: ${document.querySelector('div.extension-creator input').value} ${if_then_else_return(document.querySelector('div.extension-creator-account-url input').value == '', '', `<${document.querySelector('div.extension-creator-account-url select').value + '://' + document.querySelector('div.extension-creator-account-url input').value}>`)}`)}
 
 (function (Scratch) {
   "use strict";
   ${if_then_else_return(document.querySelector('div.extension-icon input[type="checkbox"]').checked, '', `const iconURI = "${await iconURI}";`)}
   ${if_then_else_return(document.querySelector('div.issandboxed input[type="checkbox"]').checked, `
   if (!Scratch.extensions.unsandboxed) {
-    throw new Error("This extension must run unsandboxed");
+    throw new Error("Your extension must run unsandboxed.");
   }`, '')}
 
   class ${document.querySelector('div.extension-id input').value} {
@@ -228,18 +231,20 @@ ${getEveryBlocksCode()}
   return code;
 }
 
-// ------------------------------------------
+// -----------------------------------------------------------------------------------------------------------
+// ast: these error messages are now apt-styled error messages (the word error is abbrieviated to match apt's)
+// -----------------------------------------------------------------------------------------------------------
 
 async function loadCode(){
   if(document.querySelector('div.extension-name input').value == '' || document.querySelector('div.extension-id input').value == '' || document.querySelector('div.extension-description input').value == '' || document.querySelector('div.extension-file-name input').value == ''){
     if (document.querySelector('div.extension-name input').value == ''){
-      document.querySelector('h1.errortext b').innerText = 'Error: No extension name';
+      document.querySelector('h1.errortext b').innerText = 'E: Extension name is not provided';
     } else if (document.querySelector('div.extension-id input').value == ''){
-      document.querySelector('h1.errortext b').innerText = 'Error: No extension id';
+      document.querySelector('h1.errortext b').innerText = 'E: Extension ID is not provided';
     } else if (document.querySelector('div.extension-description input').value == ''){
-      document.querySelector('h1.errortext b').innerText = 'Error: No extension description';
+      document.querySelector('h1.errortext b').innerText = 'E: Extension description is not provided';
     } else if (document.querySelector('div.extension-file-name input').value == ''){
-      document.querySelector('h1.errortext b').innerText = 'Error: No extension file name';
+      document.querySelector('h1.errortext b').innerText = 'E: Extension file name is not provided';
     }
   } else {
     document.querySelector('h1.errortext b').innerText = '';
